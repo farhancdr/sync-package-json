@@ -44,6 +44,7 @@ function App() {
         const { result, diff } = syncPackages(targetJson, sourceJson);
         setSyncedJson(result);
         setDiffLines(diff);
+        setTargetJson(result); // Update the target textarea with the new content
         setShowResult(true);
         setIsProcessing(false);
       } catch (error) {
@@ -88,6 +89,7 @@ function App() {
             value={targetJson}
             onChange={setTargetJson}
             error={targetError}
+            diffLines={showResult ? diffLines : undefined}
           />
           
           <PackageJsonInput
@@ -105,12 +107,6 @@ function App() {
             isLoading={isProcessing}
           />
         </div>
-        
-        <ResultView 
-          syncedContent={syncedJson}
-          diffLines={diffLines}
-          show={showResult} 
-        />
       </main>
       
       <footer className="mt-8 text-center text-gray-500 text-sm">
@@ -120,4 +116,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
