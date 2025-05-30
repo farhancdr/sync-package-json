@@ -2,7 +2,7 @@
 
 A modern web application that helps developers synchronize dependency versions between different package.json files. Built with React, TypeScript, and Tailwind CSS.
 
-![Package.json Sync Tool](https://sync-package-json.netlify.app)
+![Package.json Sync Tool](preview.png)
 
 ## 🚀 Features
 
