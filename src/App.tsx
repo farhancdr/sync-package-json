@@ -59,6 +59,7 @@ function App() {
         target="_blank"
         rel="noopener noreferrer"
         className="absolute top-4 right-4 flex items-center gap-2 px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors"
+        href="https://github.com/farhancdr/sync-package-json"
       >
         <Github size={10} />
       </a>

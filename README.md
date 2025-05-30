@@ -2,7 +2,7 @@
 
 A modern web application that helps developers synchronize dependency versions between different package.json files. Built with React, TypeScript, and Tailwind CSS.
 
-![Package.json Sync Tool](https://sync-package-json.netlify.app/preview.png)
+![Package.json Sync Tool](https://sync-package-json.netlify.app)
 
 ## 🚀 Features
 
@@ -34,7 +34,7 @@ The tool only updates versions for packages that already exist in your target pa
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/package-json-sync.git
+git clone https://github.com/farhancdr/sync-package-json
 
 # Install dependencies
 npm install
@@ -66,6 +66,6 @@ Try it out at: [https://sync-package-json.netlify.app](https://sync-package-json
 
 ## 📫 Contact
 
-Your Name - [@yourusername](https://twitter.com/yourusername)
+Farhan Sadek - [@farhancdr](https://twitter.com/farhancdr)
 
-Project Link: [https://github.com/yourusername/package-json-sync](https://github.com/yourusername/package-json-sync)
+Project Link: [https://github.com/farhancdr/sync-package-json](https://github.com/farhancdr/sync-package-json)
