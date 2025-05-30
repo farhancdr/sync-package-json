@@ -11,6 +11,7 @@ function App() {
   const [targetError, setTargetError] = useState<string | undefined>();
   const [sourceError, setSourceError] = useState<string | undefined>();
   const [syncedJson, setSyncedJson] = useState('');
+  const [diffLines, setDiffLines] = useState<string[]>([]);
   const [showResult, setShowResult] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
 
@@ -40,8 +41,9 @@ function App() {
     // Perform the sync with a small delay to show processing state
     setTimeout(() => {
       try {
-        const result = syncPackages(targetJson, sourceJson);
+        const { result, diff } = syncPackages(targetJson, sourceJson);
         setSyncedJson(result);
+        setDiffLines(diff);
         setShowResult(true);
         setIsProcessing(false);
       } catch (error) {
@@ -105,7 +107,8 @@ function App() {
         </div>
         
         <ResultView 
-          syncedContent={syncedJson} 
+          syncedContent={syncedJson}
+          diffLines={diffLines}
           show={showResult} 
         />
       </main>
@@ -116,5 +119,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
