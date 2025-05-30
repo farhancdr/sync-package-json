@@ -11,7 +11,6 @@ function App() {
   const [targetError, setTargetError] = useState<string | undefined>();
   const [sourceError, setSourceError] = useState<string | undefined>();
   const [syncedJson, setSyncedJson] = useState('');
-  const [diffLines, setDiffLines] = useState<string[]>([]);
   const [showResult, setShowResult] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
 
@@ -41,10 +40,8 @@ function App() {
     // Perform the sync with a small delay to show processing state
     setTimeout(() => {
       try {
-        const { result, diff } = syncPackages(targetJson, sourceJson);
+        const result = syncPackages(targetJson, sourceJson);
         setSyncedJson(result);
-        setDiffLines(diff);
-        setTargetJson(result); // Update the target textarea with the new content
         setShowResult(true);
         setIsProcessing(false);
       } catch (error) {
@@ -89,7 +86,6 @@ function App() {
             value={targetJson}
             onChange={setTargetJson}
             error={targetError}
-            diffLines={showResult ? diffLines : undefined}
           />
           
           <PackageJsonInput
@@ -107,6 +103,11 @@ function App() {
             isLoading={isProcessing}
           />
         </div>
+        
+        <ResultView 
+          syncedContent={syncedJson} 
+          show={showResult} 
+        />
       </main>
       
       <footer className="mt-8 text-center text-gray-500 text-sm">

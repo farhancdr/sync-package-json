@@ -3,11 +3,10 @@ import { CheckCircle } from 'lucide-react';
 
 interface ResultViewProps {
   syncedContent: string;
-  diffLines: string[];
   show: boolean;
 }
 
-const ResultView: React.FC<ResultViewProps> = ({ syncedContent, diffLines, show }) => {
+const ResultView: React.FC<ResultViewProps> = ({ syncedContent, show }) => {
   const copyToClipboard = () => {
     navigator.clipboard.writeText(syncedContent);
   };
@@ -20,18 +19,6 @@ const ResultView: React.FC<ResultViewProps> = ({ syncedContent, diffLines, show 
         <CheckCircle className="text-green-500 mr-2" size={20} />
         <h3 className="text-green-700 font-medium">Packages Synced Successfully!</h3>
       </div>
-
-      {diffLines.length > 0 && (
-        <div className="mb-4 p-3 bg-gray-800 rounded-md text-sm font-mono text-white overflow-x-auto">
-          {diffLines.map((line, index) => (
-            <div key={index} className="flex">
-              <span className="text-green-400">+</span>
-              <span className="ml-2">{line}</span>
-            </div>
-          ))}
-        </div>
-      )}
-
       <div className="mb-3">
         <button
           onClick={copyToClipboard}
